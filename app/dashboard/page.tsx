@@ -1,24 +1,25 @@
+import { currentUser } from "@clerk/nextjs/server";
 import { appConfig } from "@/app.config";
 import { FeatureCard } from "@/components/FeatureCard";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
   const [nextFeature] = appConfig.upcomingFeatures;
+  const user = await currentUser();
+  const displayName =
+    user?.firstName ||
+    user?.primaryEmailAddress?.emailAddress.split("@")[0] ||
+    "você";
 
   return (
     <section className="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-12">
-      <div className="rounded-2xl border border-amber-300 bg-amber-50 px-5 py-4 text-sm text-amber-900">
-        <strong>Heads up:</strong> this page is supposed to be for signed-in
-        users only, but anyone with the link can see it right now. Your job
-        today: lock it down with Clerk.
-      </div>
       <div className="flex flex-col gap-2">
         <span className="text-4xl" aria-hidden>
           🚧
         </span>
-        <h1 className="text-3xl font-bold">Welcome!</h1>
+        <h1 className="text-3xl font-bold">Olá, {displayName}!</h1>
         <p className="text-lg text-black/70">
-          {appConfig.name} is coming soon. You&apos;re on the early-access list.
-          Here&apos;s what we&apos;re building next:
+          {appConfig.name} está chegando. Você está na lista de acesso
+          antecipado. Veja o que vamos construir a seguir:
         </p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

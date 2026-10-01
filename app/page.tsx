@@ -9,16 +9,16 @@ export default function Home() {
       </span>
       <h1 className="text-5xl font-bold tracking-tight">{appConfig.name}</h1>
       <p className="max-w-xl text-lg text-black/70">{appConfig.description}</p>
+      <p className="max-w-xl text-black/60">
+        Avaliações anônimas, métricas de entrega e um ranking claro mostram
+        quem realmente carrega a equipe, e quem só ocupa uma cadeira.
+      </p>
       <Link
         href="/dashboard"
         className="rounded-full bg-accent px-6 py-3 font-medium text-white shadow-sm transition hover:opacity-90"
       >
-        Get early access →
+        Quero acesso antecipado →
       </Link>
-      <p className="text-sm text-black/50">
-        This page is public. The early-access page should be for signed-in users
-        only.
-      </p>
     </section>
   );
 }
