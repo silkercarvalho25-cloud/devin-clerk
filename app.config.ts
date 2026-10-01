@@ -4,7 +4,7 @@ export type Feature = {
 };
 
 export const appConfig = {
-  name: "Incopetencia",
+  name: "Incompetência",
   description: "Recomendar os funcionários mais inúteis de uma empresa",
   emoji: "🦥",
   accent: "#ea580c",
